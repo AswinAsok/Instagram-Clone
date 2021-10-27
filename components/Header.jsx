@@ -17,7 +17,7 @@ import { modalState } from "../atoms/modalAtom";
 
 const Header = () => {
   const { data: session } = useSession();
-  const [open, setOpen] = useRecoilState(modalState)
+  const [open, setOpen] = useRecoilState(modalState);
   const router = useRouter();
 
   return (
@@ -25,7 +25,10 @@ const Header = () => {
       <div className="flex justify-between max-w-6xl mx-5 lg:mx-auto">
         {/* Left */}
 
-        <div onClick={()=> router.push('/')} className="relative hidden lg:inline-grid w-24 cursor-pointer">
+        <div
+          onClick={() => router.push("/")}
+          className="relative hidden lg:inline-grid w-24 cursor-pointer"
+        >
           <Image
             src="https://links.papareact.com/ocw"
             layout="fill"
@@ -33,7 +36,10 @@ const Header = () => {
           />
         </div>
 
-        <div onClick={()=> router.push('/')} className="relative w-8 lg:hidden flex-shrink-0 cursor-pointer">
+        <div
+          onClick={() => router.push("/")}
+          className="relative w-8 lg:hidden flex-shrink-0 cursor-pointer"
+        >
           <Image
             src="https://links.papareact.com/jjm"
             layout="fill"
@@ -57,7 +63,7 @@ const Header = () => {
 
         {/*  Right */}
         <div className="flex items-center justify-end space-x-4">
-          <HomeIcon onClick={()=> router.push('/')} className="navBtn" />
+          <HomeIcon onClick={() => router.push("/")} className="navBtn" />
           <MenuIcon className="h-6 md:hidden" />
 
           {session ? (
@@ -68,7 +74,10 @@ const Header = () => {
                   3
                 </div>
               </div>
-              <PlusCircleIcon className="navBtn" />
+              <PlusCircleIcon
+                onClick={() => setOpen(true)}
+                className="navBtn"
+              />
               <UserGroupIcon className="navBtn" />
               <HeartIcon className="navBtn" />
 

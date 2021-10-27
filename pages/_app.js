@@ -1,6 +1,6 @@
 import "../styles/globals.css";
 import { SessionProvider } from "next-auth/react";
-import { Recoil } from "recoil";
+import { RecoilRoot } from "recoil";
 
 function MyApp({ Component, pageProps: { session, ...pageProps } }) {
   return (
