@@ -4,13 +4,61 @@ import { Dialog, Transition } from "@headlessui/react";
 import { CameraIcon } from "@heroicons/react/outline";
 import { useState, Fragment, useRef } from "react";
 
+import { db, storage } from "../firebase";
+import {
+  addDoc,
+  doc,
+  collection,
+  serverTimestamp,
+  updateDoc,
+} from "@firebase/firestore";
+import { ref, getDownloadURL, uploadString } from "@firebase/storage";
+import { useSession } from "next-auth/react";
+
 const Modal = () => {
+  const { data: session } = useSession();
   const [open, setOpen] = useRecoilState(modalState);
   const filePickerRef = useRef(null);
   const [selectedFile, setSelectedFile] = useState(null);
+  const [loading, setLoading] = useState(false);
   const captionRef = useRef(null);
 
-  
+  const uploadPost = async () => {
+    if (loading) {
+      return;
+    }
+
+    setLoading(true);
+
+    // Create a Post add to firestory "posts" collections
+    // get the post ID for the newly created post
+    // upload the image to the firebase storage with the post ID
+    // get a download URL from fb storyage and update the original post with image
+
+    const docRef = await addDoc(collection(db, "posts"), {
+      username: session.user.username,
+      caption: captionRef.current.value,
+      profileImg: session.user.image,
+      timestamp: serverTimestamp(),
+    });
+
+    console.log("new Doc Added with ID", docRef.id);
+
+    const imageRef = ref(storage, `posts/${docRef.id}/image`);
+
+    await uploadString(imageRef, selectedFile, "data_url").then(
+      async (snapshot) => {
+        const downloadURL = await getDownloadURL(imageRef);
+        await updateDoc(doc(db, "posts", docRef.id), {
+          image: downloadURL,
+        });
+      }
+    );
+
+    setOpen(false);
+    setLoading(false);
+    setSelectedFile(null);
+  };
 
   const addImageToPost = (e) => {
     const reader = new FileReader();
@@ -106,10 +154,12 @@ const Modal = () => {
 
                 <div className="mt-5 sm:mt-6">
                   <button
+                    onClick={uploadPost}
+                    disabled={!selectedFile}
                     type="button"
                     className="inline-flex justify-center w-full rounded-md border boder-transparent shadow-sm px-4 py-2 bg-red-600 text-base font-medium text-white hover:bg-red-700 focus:outline-none focus:outline-none disabled:cursor-not-allowed disabled:hover:bg-gray-300 "
                   >
-                    Upload Post
+                    {loading ? "Uploading..." : "Upload Post"}
                   </button>
                 </div>
               </div>
