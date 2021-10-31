@@ -1,5 +1,5 @@
 <h1 align="center">
-  Instagram Clone
+  Instagram Clone 🚀
 </h1>
 
 <p align="center">
@@ -33,7 +33,7 @@
 
 
 
-## Live Demo
+## Live Demo 🔥
 
 ![Website Up](https://img.shields.io/website?url=https://github.com/aswinasok/Instagram-Clone&logo=github&style=flat-square) <br>
 
@@ -86,4 +86,4 @@ Please make sure to update tests as appropriate.
 Instagram Clone is licensed under the MIT license. [https://opensource.org/licenses/MIT](https://opensource.org/licenses/MIT)
 
 <h5 align='center'>Developed with ❤️ In India 🇮🇳 By Aswin</h5>
-<h5 align='center'>'⭐' This project, if you found it useful</h5>
+<h5 align='center'>⭐ This project, if you found it useful</h5>
