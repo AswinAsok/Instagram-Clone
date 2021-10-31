@@ -7,6 +7,8 @@ import {
   PaperAirplaneIcon,
 } from "@heroicons/react/outline";
 
+import Moment from "react-moment";
+
 import { db, storage } from "../firebase";
 import {
   addDoc,
@@ -102,9 +104,15 @@ const Post = ({ id, username, userImg, img, caption }) => {
                 alt=""
               />
               <p className="text-sm flex-1">
-                <span className="font-bold mr-1">{comment.data().username}</span>
+                <span className="font-bold mr-1">
+                  {comment.data().username}
+                </span>
                 {comment.data().comment}
               </p>
+
+              <Moment fromNow className="pr-5 text-xs">
+                {comment.data().timestamp?.toDate()}
+              </Moment>
             </div>
           ))}
         </div>
