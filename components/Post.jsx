@@ -7,6 +7,8 @@ import {
   PaperAirplaneIcon,
 } from "@heroicons/react/outline";
 
+import { HeartIcon as HeartIconFilled } from "@heroicons/react/solid";
+
 import Moment from "react-moment";
 
 import { db, storage } from "../firebase";
@@ -20,6 +22,7 @@ import {
   orderBy,
   query,
   setDoc,
+  deleteDoc,
 } from "@firebase/firestore";
 
 import { useSession } from "next-auth/react";
@@ -30,6 +33,7 @@ const Post = ({ id, username, userImg, img, caption }) => {
   const [comment, setComment] = useState("");
   const [comments, setComments] = useState([]);
   const [likes, setLikes] = useState([]);
+  const [hasLiked, setHasLiked] = useState(false);
 
   useEffect(
     () =>
@@ -51,10 +55,22 @@ const Post = ({ id, username, userImg, img, caption }) => {
     [db, id]
   );
 
+  useEffect(
+    () =>
+      setHasLiked(
+        likes.findIndex((like) => like.id === session?.user?.uid) !== -1
+      ),
+    [likes]
+  );
+
   const likePost = async () => {
-    await setDoc(doc(db, "posts", id, "likes", session.user.uid), {
-      username: session.user.username,
-    });
+    if (hasLiked) {
+      await deleteDoc(doc(db, "posts", id, "likes", session.user.uid));
+    } else {
+      await setDoc(doc(db, "posts", id, "likes", session.user.uid), {
+        username: session.user.username,
+      });
+    }
   };
 
   const sentComment = async (e) => {
@@ -94,7 +110,15 @@ const Post = ({ id, username, userImg, img, caption }) => {
       {session && (
         <div className=" flex justify-between px-4 py-4">
           <div className="flex space-x-4 ">
-            <HeartIcon onClick={likePost} className="btn" />
+            {hasLiked ? (
+              <HeartIconFilled
+                onClick={likePost}
+                className="btn text-red-500"
+              />
+            ) : (
+              <HeartIcon onClick={likePost} className="btn" />
+            )}
+
             <ChatIcon className="btn" />
             <PaperAirplaneIcon className="btn" />
           </div>
@@ -105,6 +129,9 @@ const Post = ({ id, username, userImg, img, caption }) => {
 
       {/* caption */}
       <p className="p-5 truncate">
+        {likes.length > 0 && (
+          <p className="font-bold mb-1">{likes.length} likes</p>
+        )}
         <span className="font-medium mr-1">{username}</span>
         {caption}
       </p>
