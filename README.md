@@ -1,29 +1,89 @@
-# Next.js + Tailwind CSS Example
+<h1 align="center">
+  Instagram Clone
+</h1>
 
-This example shows how to use [Tailwind CSS](https://tailwindcss.com/) [(v2.2)](https://blog.tailwindcss.com/tailwindcss-2-2) with Next.js. It follows the steps outlined in the official [Tailwind docs](https://tailwindcss.com/docs/guides/nextjs).
+<p align="center">
+  This project being made using Next.js is hosted at Vercel and uses Firebase for storage and Backend functions.
+</p>
 
-It uses the new [`Just-in-Time Mode`](https://tailwindcss.com/docs/just-in-time-mode) for Tailwind CSS.
+<p align="center">
+    <img src="https://visitor-badge.laobi.icu/badge?page_id=aswinasok/Instagram-Clone"/>
+    <!--Links -->
+    <a href="https://github.com/aswinasok/Instagram-Clone/stargazers" target="blank">
+        <img src="https://img.shields.io/github/stars/aswinasok/Instagram-Clone"/>
+    </a>
+    <a href="https://github.com/aswinasok/Instagram-Clone/blob/master/LICENSE" target="blank">
+        <img src="https://img.shields.io/github/license/AswinAsok/Instagram-Clone"/>
+    </a>
+    <a href="https://GitHub.com/AswinAsok/Instagram-Clone/issues/" target="blank">
+        <img src="https://img.shields.io/github/issues/AswinAsok/Instagram-Clone.svg"/>
+    </a>
+    <a href="https://GitHub.com/AswinAsok/Instagram-Clone/pull/" target="blank">
+        <img src="https://img.shields.io/github/issues-pr/AswinAsok/Instagram-Clone.svg"/>
+    </a>
+    <a href="https://github.com/AswinAsok/Instagram-Clone/blob/master/LICENSE" target="blank">
+        <img src="https://img.shields.io/github/forks/AswinAsok/Instagram-Clone"/>
+    </a>
+    <a href="https://GitHub.com/AswinAsok/Instagram-Clone/graphs/contributors/" target="blank">
+        <img src="https://img.shields.io/github/contributors/AswinAsok/Instagram-Clone.svg"/>
+    </a>
+    <!--Commits -->
+    <img src="https://img.shields.io/github/last-commit/AswinAsok/Instagram-Clone.svg"/>
+</p>
 
-## Preview
 
-Preview the example live on [StackBlitz](http://stackblitz.com/):
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/vercel/next.js/tree/canary/examples/with-tailwindcss)
+## Live Demo
 
-## Deploy your own
+![Website Up](https://img.shields.io/website?url=https://github.com/aswinasok/Instagram-Clone&logo=github&style=flat-square) <br>
 
-Deploy the example using [Vercel](https://vercel.com?utm_source=github&utm_medium=readme&utm_campaign=next-example):
+View the app live, share the happiness [Instagram Clone](https://bit.ly/3mwhCVI) <br>
+**Consider giving a ⭐, If you found this project helpful**
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https://github.com/vercel/next.js/tree/canary/examples/with-tailwindcss&project-name=with-tailwindcss&repository-name=with-tailwindcss)
+## Instagram Clone Features 🎮
 
-## How to use
+- **Next Auth Authentication**
+- **Add Comments**
+- **Realtime Post Updation**
+- **Like Posts**
+- **Fake Stories by Faker.js**
+- **SignUp with Google Account**
 
-Execute [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) with [npm](https://docs.npmjs.com/cli/init) or [Yarn](https://yarnpkg.com/lang/en/docs/cli/create/) to bootstrap the example:
+## Build 🚀
 
-```bash
-npx create-next-app --example with-tailwindcss with-tailwindcss-app
-# or
-yarn create next-app --example with-tailwindcss with-tailwindcss-app
+**1. Clone the repo**
+
+```javascript
+git clone AswinAsok/Instagram-Clone
 ```
 
-Deploy it to the cloud with [Vercel](https://vercel.com/new?utm_source=github&utm_medium=readme&utm_campaign=next-example) ([Documentation](https://nextjs.org/docs/deployment)).
+**3. Entering project directory**
+
+```javascript
+cd Instagram-Clone/
+```
+
+**3. Installing Dependencies**
+
+```javascript
+npm install
+```
+
+**4. Starting server**
+
+```javascript
+npm run dev
+```
+
+## Contributing 🤗
+
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+
+Please make sure to update tests as appropriate.
+
+## License 🛡️
+
+Instagram Clone is licensed under the MIT license. [https://opensource.org/licenses/MIT](https://opensource.org/licenses/MIT)
+
+<h5 align='center'>Developed with ❤️ In India 🇮🇳 By Aswin</h5>
+<h5 align='center'>'⭐' This project, if you found it useful</h5>
